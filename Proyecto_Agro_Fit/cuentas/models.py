@@ -3,12 +3,7 @@ from django.contrib.auth.models import User #Esta importacion es para poder usar
 
 # Create your models here.
 
-#Estas son tuplas con las opciones del los menus desplegables.
-ROLES = (
-    ('funcionario', 'Funcionario'),
-    ('aprendiz', 'Aprendiz'),
-)
-    
+#Estas son tuplas con las opciones del los menus desplegables.    
 DEPENDENCIAS = (
     ('instructor gym', 'Instructor GYM'),
     ('coordinador', 'Coordinador'),
@@ -33,10 +28,11 @@ class PerfilFuncionario(models.Model):
     
     dependencia = models.CharField(max_length=50, choices=DEPENDENCIAS)
     centro_formacion = models.CharField(max_length=50, choices=CENTROS_FORMACION)
+    dependencia = models.CharField(max_length=50, choices=DEPENDENCIAS)
     
     def __str__(self):
         return f'Funcionario: {self.user}-{self.dependencia}'
-    
+     
 
 #TABLA PARA APRENDIZES
 class PerfilAprendiz(models.Model):
